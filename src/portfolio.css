@@ -1,0 +1,168 @@
+/* Line 1-4: Change these hex values */
+:root{
+  --accent:#0f62fe;      /* Change this to your preferred accent color */
+  --muted:#666;          /* Change this for muted text color */
+  --bg:#f8fafc;          /* Change this for background color */
+}
+/* Line 6: Change the text color from light to dark */
+body{margin:0;font-family:Inter, system-ui, Arial, sans-serif;color:#111;background:var(--bg)}
+/* Change #f5ecece9 to #111 or #333 for dark text */
+html{scroll-behavior:smooth}
+/* make nav sticky so anchors scroll beneath it nicely */
+/* Line 10: Change nav background if needed */
+.site-nav{background:#fff;box-shadow:0 1px 4px rgb(230, 232, 237)}
+
+/* Line 12: Brand color uses --accent, so already covered */
+
+/* Line 14-16: Nav link colors */
+.nav-links a{color:var(--muted);text-decoration:none;padding:.25rem .5rem;border-radius:6px}
+.nav-links a.active,.nav-links a:hover{color:#0b4fd6;background:rgba(234, 235, 237, 0.907)}
+/* Line 16: Change hover color and background */
+/* Line 18: Hero gradient - optional change */
+
+/* Line 22: Lead text color */
+.lead{color:var(--muted);margin-bottom:1rem}
+/* Line 24: Primary button */
+.btn{background:var(--accent);color:#fff;padding:.6rem 1rem;border-radius:8px;text-decoration:none;border:none;cursor:pointer}
+
+/* Line 25: Outline button */
+.btn-outline{background:transparent;border:1px solid rgb(233, 236, 240);color:var(--accent)}
+.preview .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1rem;margin-top:1rem}
+/* Line 28: Card background */
+.card{background:#fff;padding:1rem;border-radius:8px;box-shadow:0 1px 3px rgba(16,24,40,.04)}
+
+/* Line 30: Service item background */
+.service-item{background:#fff;padding:1rem;border-radius:8px}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.client-list{display:flex;gap:.5rem;flex-wrap:wrap;padding:0;list-style:none}
+/* Line 35: Client pill background */
+.client-pill{background:#fff;padding:.5rem .75rem;border-radius:999px;box-shadow:0 1px 2px rgba(16,24,40,.04)}
+.gallery-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:.75rem}
+/* Line 38: Thumbnail gradient */
+.thumb{background:linear-gradient(135deg,rgba(37, 99, 235, 0.08),#fff);height:120px;border-radius:8px;display:flex;align-items:center;justify-content:center;color:var(--muted)}
+.contact-form{display:grid;gap:.5rem;max-width:600px}
+.contact-form label{display:flex;flex-direction:column}
+.contact-form input,.contact-form textarea{padding:.6rem;border-radius:6px;border:1px solid #e6edf3}
+/* Line 44: Footer text color */
+.site-footer{padding:2rem 0;margin-top:2rem;background:transparent;color:var(--muted)}
+.footer-inner{display:flex;justify-content:space-between;align-items:center}
+@media (max-width:700px){
+  .about-grid{grid-template-columns:1fr}
+  .nav-links{display:none}
+  .hero-inner h1{font-size:1.5rem}
+}
+/* WhatsApp Button Styles */
+.whatsapp-container {
+  position: fixed;
+  bottom: 11rem; /* Position above chatbot and enquire button */
+  right: 2rem;
+  z-index: 60;
+}
+
+.whatsapp-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  background-color: #25D366; /* WhatsApp green */
+  border: none;
+  border-radius: 50%;
+  box-shadow: 0 4px 12px rgba(37, 211, 102, 0.3);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.whatsapp-btn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
+  background-color: #128C7E;
+}
+
+.whatsapp-btn svg {
+  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.2));
+}
+
+/* Tooltip on hover */
+.whatsapp-btn::after {
+  content: 'Chat on WhatsApp';
+  position: absolute;
+  bottom: 70px;
+  right: 50%;
+  transform: translateX(50%);
+  background: #333;
+  color: white;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 12px;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+.whatsapp-btn:hover::after {
+  opacity: 1;
+}
+
+/* Adjust existing button positions to make space */
+.enquire-btn {
+  position: fixed;
+  bottom: 5rem;
+  right: 2rem;
+  z-index: 50;
+}
+
+.chatbot {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  z-index: 50;
+}
+
+/* Animation for button */
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.4);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(37, 211, 102, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+  }
+}
+
+/* Add pulsing animation */
+.whatsapp-btn {
+  animation: pulse 2s infinite;
+}
+
+/* Mobile Responsive Styles */
+@media (max-width: 768px) {
+  .whatsapp-container {
+    bottom: 13rem;
+    right: 1rem;
+  }
+  
+  .enquire-btn {
+    bottom: 7rem;
+    right: 1rem;
+  }
+  
+  .chatbot {
+    bottom: 2rem;
+    right: 1rem;
+  }
+  
+  .whatsapp-btn {
+    width: 52px;
+    height: 52px;
+  }
+  
+  .whatsapp-btn::after {
+    font-size: 11px;
+    bottom: 65px;
+  }
+}
